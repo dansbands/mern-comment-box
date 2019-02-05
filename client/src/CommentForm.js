@@ -2,7 +2,7 @@ import React from 'react'
 
 const CommentForm = props => {
   return (
-    <form onSubmit={props.submitComment}>
+    <form onSubmit={props.handleSubmit}>
       <input
         type="text"
         name="author"
