@@ -1,5 +1,5 @@
 const secrets = {
-  dbUri: process.env.DB_URI
+  dbUri: poop
 }
 
 export const getSecret = key => secrets[key]
