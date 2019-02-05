@@ -1,20 +1,25 @@
 import React from 'react'
 
-class CommentForm extends React.Component {
-  state = {
-    value: '',
-    messages: []
-  }
-
-
-  render () {
-    return (
-      <form onSubmit={this.props.submit}>
-        <input type="text" value={this.props.value} onChange={this.props.change}></input>
-        <input type="submit" ></input>
-      </form>
-    )
-  }
+const CommentForm = props => {
+  return (
+    <form onSubmit={props.submitComment}>
+      <input
+        type="text"
+        name="author"
+        placeholder="Your name..."
+        value={props.author}
+        onChange={props.handleChangeText}
+      />
+      <input
+        type="text"
+        name="text"
+        placeholder="Say something..."
+        value={props.text}
+        onChange={props.handleChangeText}
+      />
+      <button type="submit" >Submit</button>
+    </form>
+  )
 }
 
 export default CommentForm;

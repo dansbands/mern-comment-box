@@ -9,41 +9,19 @@ class CommentBox extends Component {
     super(props);
 
     this.state = {
-      value: '',
       data: []
     };
   }
 
-
-  handleChange = e => {
-    this.setState({ value: e.target.value })
-  }
-
-  handleSubmit = e => {
-    e.preventDefault()
-  // console.log('submitting');
-    this.setState({
-      data: [
-        ...this.state.data,
-        this.state.value
-      ],
-      value: ''
-    })
-  }
-
   render() {
-    // console.log('App', this.state);
     return(
       <div className="container">
         <div className="comments">
           <h2>Comments:</h2>
-          <CommentList data={this.state.data} />
+          <CommentList data={DATA} />
         </div>
         <div className="form">
-          <CommentForm
-            value={this.state.value}
-            change={this.handleChange}
-            submit={this.handleSubmit}/>
+          <CommentForm />
         </div>
       </div>
     )
