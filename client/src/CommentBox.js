@@ -35,15 +35,15 @@ class CommentBox extends Component {
     // console.log('App', this.state);
     return(
       <div className="container">
+        <div className="comments">
+          <h2>Comments:</h2>
+          <CommentList data={this.state.data} />
+        </div>
         <div className="form">
           <CommentForm
             value={this.state.value}
             change={this.handleChange}
             submit={this.handleSubmit}/>
-        </div>
-        <div className="comments">
-          <h2>Comments:</h2>
-          <CommentList data={this.state.data} />
         </div>
       </div>
     )
