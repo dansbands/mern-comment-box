@@ -1,6 +1,6 @@
 This project follows this tutorial, with some slight changes:
 
-[MERN Stack — The Old Facebook Comment Box Tutorial except 2018] (https://medium.com/@bryantheastronaut/ok-here-we-go-b9f683c5a00c)
+[MERN Stack — The Old Facebook Comment Box Tutorial except 2018](https://medium.com/@bryantheastronaut/ok-here-we-go-b9f683c5a00c)
 
 
 
