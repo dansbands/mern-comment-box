@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import CommentList from './CommentList';
-import CommentForm from './CommentForm';
+import CommentList from './components/CommentList';
+import CommentForm from './components/CommentForm';
 import DATA from './data';
-import './CommentBox.css';
+import './css/CommentBox.css';
 
 class CommentBox extends Component {
   constructor(props) {
