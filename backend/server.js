@@ -1,5 +1,6 @@
 import { getSecret } from './secrets'
 import Comment from './models/comment'
+import Todo from './models/todo'
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
@@ -17,6 +18,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin','*');
+  res.header('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 router.get('/', (req, res) => {
   res.json({ message: 'Hello, World!' });
@@ -26,6 +32,30 @@ router.get('/comments', (req, res) => {
   Comment.find((err, comments) => {
     if (err) return res.json({ success: false, error: err});
     return res.json({ success: true, data: comments });
+  });
+});
+
+router.get('/todos', (req, res) => {
+  Todo.find((err, todos) => {
+    if (err) return res.json({ success: false, error: err});
+    return res.json({ success: true, data: todos });
+  });
+});
+
+router.post('/todos', (req, res) => {
+  const todo = new Todo();
+  console.log('Post', req.body);
+  const { text } = req.body;
+  if (!text) {
+    return res.json({
+      success: false,
+      error: 'You must provide text'
+    });
+  }
+  todo.text = text;
+  todo.save(err => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true })
   });
 });
 
